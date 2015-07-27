@@ -1,12 +1,14 @@
 {
-    "name": "bae-nodejs",
+    "name": "unclay",
     "version": "1.0.0",
-    "author": "bae",
-    "description": "The first bae nodejs app!",
+    "author": "wangchenglin",
+    "description": "blog",
     "scripts": {
         "start": "node server.js"
     },
     "dependencies": {
-    }
+	    "express": "^4.13.1",
+	    "juicer-template": "^1.0.0"
+	}
 }
 
