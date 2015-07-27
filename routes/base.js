@@ -1,6 +1,5 @@
 "use strict";
 var path = require("path");
-var juicer = require("juicer");
 var fs = require("fs");
 // 首页
 exports.rindex = function(req, res) {
