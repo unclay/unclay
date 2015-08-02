@@ -1,13 +1,13 @@
 {
-    "name": "unclay",
-    "version": "1.0.0",
-    "author": "wangchenglin",
-    "description": "blog",
-    "scripts": {
-        "start": "node index.js"
-    },
-    "dependencies": {
-	    "express": "^4.13.1",
-	    "juicer-template": "^1.0.0"
-	}
+  "name": "unclay",
+  "version": "1.0.0",
+  "author": "wangchenglin",
+  "description": "blog",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.1",
+    "juicer-template": "^1.0.0"
+  }
 }
