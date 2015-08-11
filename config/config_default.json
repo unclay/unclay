@@ -1,5 +1,8 @@
 {
 	"domain": {
 		"SOURCE": "http://localhost:8011"
+	},
+	"domain": {
+		"SOURCE": "http://source.unclay.com"
 	}
 }
