@@ -1,0 +1,95 @@
+        <div class="wrap-header">
+            <div class="pdleft12">
+                <i class="iconclary">&#xe611;</i><a href="">首页</a>
+                <span class="nav-step">&gt;</span>
+                <a href="/admin/note.wcl">文章管理</a>
+                <span class="nav-step">&gt;</span>
+                <span>新增文章</span>
+            </div>
+        </div>
+        <div class="wrap-main">
+            <div class="insert-from">
+                <form action="" method="post">
+                    <table class="insert-box" width="100%">
+                        <tbody>
+                            <tr>
+                                <th width="120">访问地址 :</th>
+                                <td><input type="text" name="seo_url" id="JS_seoUrl" /></td>
+                            </tr>
+                            <tr>
+                                <th>标题 :</th>
+                                <td><input type="text" name="title" id="JS_title" /></td>
+                            </tr>
+                            <tr>
+                                <th>简介 :</th>
+                                <td><input type="text" name="intro" id="JS_intro" /></td>
+                            </tr>
+                            <tr>
+                                <th>缩略图 :</th>
+                                <td><input type="hidden" name="thumbnail" id="JS_thumbnail"><input type="file" id="JS_file_thumbnail" name="file_thumbnail" /><input type="button" value="上传" id="JS_btn_thumbnail" /><span id="JS_upload_error"></span><img src="" id="JS_img_thumbnail" onerror="this.style.display='none'" /></td>
+                            </tr>
+                            <tr>
+                                <th>内容 :</th>
+                                <td><textarea class="common-insert-textarea" name="content" id="JS_content" cols="80" rows="7"></textarea></td>
+                            </tr>
+                            <tr>
+                                <th>Title :</th>
+                                <td><input type="text" name="seo_title" id="JS_seoTitle" /></td>
+                            </tr>
+                            <tr>
+                                <th>Keyword :</th>
+                                <td><input type="text" name="seo_keyword" id="JS_seoKeyword" /></td>
+                            </tr>
+                            <tr>
+                                <th>Description :</th>
+                                <td><input type="text" name="seo_description" id="JS_seoDescription" /></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input class="btn" type="submit" value="提交" id="JS_submit" />
+                                    <input class="btn" type="submit" value="取消"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <input type="hidden" value="insert" name="params" id="JS_params"/>
+                </form>
+            </div>
+        </div>
+        <script>
+        		seajs.use(["jquery", "site-config/1.0.0/index"], function($, Config){
+        			console.log($);
+		        	$("#JS_submit").on("click", function(e){
+		    			var json = {
+		    				title: $("#JS_title").val(),
+		    				intro: $("#JS_intro").val(),
+		    				content: $("#JS_content").val(),
+		    				thumbnail: $("#JS_file_thumbnail").val(),
+		    				seo_title: $("#JS_seoTitle").val(),
+		    				seo_keyword: $("#JS_seoKeyword").val(),
+		    				seo_description: $("#JS_seoDescription").val(),
+		    				seo_url: $("#JS_seoUrl").val()
+		    			};
+		    			console.log(json);
+		    			$.ajax({
+		    				url: Config.getSiteUrl("api")+"/api/v1/note",
+		    				type: "POST",
+		    				data: json,
+		    				xhrFields: {
+		    					withCredentials:true
+		    				},
+		    				success: function(data){
+		    					console.log(data);
+		    				},
+		    				error: function(data){
+		    					console.log(data);
+		    				}
+		    			});
+		    			e.preventDefault();
+		    		});
+		        });
+
+        
+        	
+        </script>

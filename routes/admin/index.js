@@ -6,4 +6,18 @@ module.exports = function(app){
 	    	title: "unclay"
 	    });
 	});
+
+	app.get("/admin/note.wcl", function(req, res){
+		res.locals.layout = "admin/layout";
+		res.jrender("admin/note", {
+	    	title: "unclay"
+	    });
+	});
+
+	app.get("/admin/note/insert.wcl", function(req, res){
+		res.locals.layout = "admin/layout";
+		res.jrender("admin/note.insert", {
+	    	title: "unclay"
+	    });
+	});
 }

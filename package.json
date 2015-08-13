@@ -8,6 +8,6 @@
   },
   "dependencies": {
     "express": "^4.13.1",
-    "juicer-template": "^1.0.0"
+    "juicer-template": "^1.0.1"
   }
 }

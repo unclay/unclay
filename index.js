@@ -17,7 +17,11 @@ app.set("views", path.join(__dirname + "/views"));
 app.set("view engine", "html");
 app.use(jTemplate({
 	cache: false,
-	domain: config.domain
+	domain: config.domain,
+	set: {
+		'tag::commentOpen': '$#',
+    	'tag::commentClose': '$'
+	}
 }));
 
 
