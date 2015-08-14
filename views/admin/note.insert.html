@@ -47,8 +47,8 @@
                             <tr>
                                 <th></th>
                                 <td>
-                                    <input class="btn" type="submit" value="提交" id="JS_submit" />
-                                    <input class="btn" type="submit" value="取消"/>
+                                    <input class="btn" type="submit" value="新增" id="JS_submit" />
+                                    <a href="/admin/note.wcl" class="btn">取消</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -57,39 +57,3 @@
                 </form>
             </div>
         </div>
-        <script>
-        		seajs.use(["jquery", "site-config/1.0.0/index"], function($, Config){
-        			console.log($);
-		        	$("#JS_submit").on("click", function(e){
-		    			var json = {
-		    				title: $("#JS_title").val(),
-		    				intro: $("#JS_intro").val(),
-		    				content: $("#JS_content").val(),
-		    				thumbnail: $("#JS_file_thumbnail").val(),
-		    				seo_title: $("#JS_seoTitle").val(),
-		    				seo_keyword: $("#JS_seoKeyword").val(),
-		    				seo_description: $("#JS_seoDescription").val(),
-		    				seo_url: $("#JS_seoUrl").val()
-		    			};
-		    			console.log(json);
-		    			$.ajax({
-		    				url: Config.getSiteUrl("api")+"/api/v1/note",
-		    				type: "POST",
-		    				data: json,
-		    				xhrFields: {
-		    					withCredentials:true
-		    				},
-		    				success: function(data){
-		    					console.log(data);
-		    				},
-		    				error: function(data){
-		    					console.log(data);
-		    				}
-		    			});
-		    			e.preventDefault();
-		    		});
-		        });
-
-        
-        	
-        </script>
