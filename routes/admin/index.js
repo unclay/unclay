@@ -27,4 +27,11 @@ module.exports = function(app){
 	    	title: "unclay"
 	    });
 	});
+
+	app.get("/admin/tag.wcl", function(req, res){
+		res.locals.layout = "admin/layout";
+		res.jrender("admin/tag", {
+	    	title: "unclay"
+	    });
+	});
 }
