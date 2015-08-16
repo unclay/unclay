@@ -41,20 +41,9 @@
                                 <td><textarea class="common-insert-textarea" name="content" id="JS_content" cols="80" rows="7">{{content}}</textarea></td>
                             </tr>
                             <tr>
-                                <th>分类 :{{category}}</th>
-                                <td>
-                                    {{#each categoryall}}
-
-                                        <label for="category{{id}}"><input type="radio" id="category{{id}}" name="category" value="{{id}}" {{ischecked}} />{{name}}</label>
-                                    {{/each}}
-                                </td>
-                            </tr>
-                            <tr>
                                 <th>标签 :</th>
-                                <td>
-                                    {{#each tagall}}
-                                        <label for="tag{{id}}"><input type="checkbox" name="tag" id="tag{{id}}" value="{{id}}" {{ischecked}}/>{{name}}</label>
-                                    {{/each}}
+                                <td id="JS_tag">
+                                    {{setTag tag arrTag}}
                                 </td>
                             </tr>
                             <tr>
@@ -78,7 +67,6 @@
                             </tr>
                         </tbody>
                     </table>
-                    <input type="hidden" value="modify,{{id}}" name="params" id="JS_params"/>
                     {{/with}}
                     </script>
                 </form>
