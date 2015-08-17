@@ -26,7 +26,7 @@
                             </tr>
                             <tr>
                                 <th>缩略图 :</th>
-                                <td><input type="hidden" name="thumbnail" id="JS_thumbnail"><input type="file" id="JS_file_thumbnail" name="file_thumbnail" /><input type="button" value="上传" id="JS_btn_thumbnail" /><span id="JS_upload_error"></span><img src="" id="JS_img_thumbnail" onerror="this.style.display='none'" /></td>
+                                <td><input type="hidden" name="thumbnail" id="JS_thumbnail"><input type="file" id="JS_file_thumbnail" name="file_thumbnail" /><input type="button" value="上传" id="JS_btn_thumbnail" /><input type="button" name="_select" id="JS_select_thumbnail" value="选择"><span id="JS_upload_error"></span><img src="" id="JS_img_thumbnail" onerror="this.style.display='none'" /></td>
                             </tr>
                             <tr>
                                 <th>内容 :</th>
@@ -63,3 +63,14 @@
                 </form>
             </div>
         </div>
+        <script type="unclay/template" id="JS_thumbnailShade_tpl">
+                    <div class="thumbnail-shade" id="JS_thumbnailShade">
+                        <i class="thumbnail-shade-i"></i>
+                        <div class="thumbnail-shade-box">
+                            <div class="btn-sure">确定</div>
+                            {{#each this}}
+                                <img src="{{getTImg file_name}}" data-name="{{file_name}}" />
+                            {{/each}}
+                        </div>
+                    </div>
+                </script>
