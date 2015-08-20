@@ -34,4 +34,11 @@ module.exports = function(app){
 	    	title: "unclay"
 	    });
 	});
+
+	app.get("/admin/login.wcl", function(req, res){
+		res.locals.layout = "";
+		res.jrender("admin/login", {
+	    	title: "unclay"
+	    });
+	});
 }
