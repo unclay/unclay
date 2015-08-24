@@ -10,6 +10,6 @@
     "express": "^4.13.1",
     "juicer-template": "^1.0.1",
     "express-session": "^1.11.3",
-    "connect-redis": "^2.4.1",
+    "connect-redis": "^2.4.1"
   }
 }
