@@ -1,11 +1,6 @@
 module.exports = function(app){
 
 	app.get("/admin/index.wcl",function(req, res, next){
-		console.log(req.session);
-		console.log(req.session.reload(function(err){
-			console.log(err);
-		}));
-		console.log(req.sessionID);
 		next();
 	}, function(req, res){
 		res.locals.layout = "admin/layout";
