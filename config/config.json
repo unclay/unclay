@@ -1,5 +1,10 @@
 {
 	"domain": {
-		"SOURCE": "http://source.unclay.com"
+		"SOURCE": "http://source.home.com"
+	},
+	"redis": {
+	    "host": "192.168.1.114",
+	    "port": "6379",
+	    "pass": "123456"
 	}
 }

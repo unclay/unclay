@@ -212,6 +212,7 @@
         color: #f90;
     }
     </style>
+    <script type="text/javascript" src="${SOURCE}/common/js/seajs.min.js"></script>
 </head>
 
 <body>
@@ -219,15 +220,15 @@
         <h1>后台管理</h1>
         <div class="adming_login_border">
             <div class="admin_input">
-                <form action="#" method="post">
+                <form method="post">
                     <ul class="admin_items">
                         <li>
                             <label for="user">用户名：</label>
-                            <input type="text" name="username" value="" size="40" class="admin_input_style" />
+                            <input type="text" name="username" value="wangchenglin" size="40" class="admin_input_style" />
                         </li>
                         <li>
                             <label for="pwd">密码：</label>
-                            <input type="password" name="pwd" value="" size="40" class="admin_input_style" />
+                            <input type="password" name="pwd" value="123456wcl" size="40" class="admin_input_style" />
                         </li>
                         <li>
                             <input type="submit" tabindex="3" value="提交" class="btn btn-primary" />
@@ -245,7 +246,17 @@
     			"pass": document.querySelectorAll(".admin_input_style")[1].value
     		};
     		console.log(json);
-    		alert(123);
+            $.ajax({
+                url: "http://api.home.com/api/v1/login",
+                type: "POST",
+                data: json,
+                success: function(data){
+                    console.log(data);
+                },
+                error: function(data){
+                    console.log(data);
+                }
+            });
     		e.preventDefault();
     	}
     </script>

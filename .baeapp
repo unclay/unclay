@@ -1,0 +1,18 @@
+alias:
+- aliasDomain: unclay.com
+  cdatetime: '1438005022'
+- aliasDomain: www.unclay.com
+  cdatetime: '1438005012'
+appid: appidb3heqge384
+appname: unclay
+cdatetime: '1438003585'
+createtype: web
+domain: unclay.duapp.com
+inum: '1'
+langType: nodejs
+name: unclay
+releaseRevision: 7239febb3c8d26bd0c11578cd9214b0c280bd10d
+reposUrl: https://git.duapp.com/appidb3heqge384
+solution: nodejs-web
+status: '4'
+versionType: git
