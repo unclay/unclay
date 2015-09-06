@@ -15,6 +15,16 @@
     {@body_header@}
     <div class="note">
         <div class="note-wrap cls" id="JS_note">
+            <script type="unclay/template">
+                <div class="grid">
+                    <a href="#" class="grid-img">
+                        <img src="${SOURCE}/common/img/img27.jpg" />
+                    </a>
+                    <a href="#" class="grid-title">日落湖</a>
+                    <p>和平日落景观......</p>
+                    <div class="grid-meta">2013年6月6日</div>
+                </div>
+            </script>
             <div class="grid">
                 <a href="#" class="grid-img">
                     <img src="${SOURCE}/common/img/img27.jpg" />
@@ -137,18 +147,14 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
-    <script type="text/javascript" src="${SOURCE}/common/js/blocksit.min.js"></script>
+    <script src="${SOURCE}/common/js/seajs.min.js"></script>
+    
     <script type="text/javascript">
-    	$(document).ready(function(){
-    		$(window).load( function() {
-				$('#JS_note').BlocksIt({
-					numOfCol: 4,
-					offsetX: 8,
-					offsetY: 10
-				});
-			});
-    	});
+        seajs.use("${SOURCE}/common/js/common_v1.js", function(admin) {
+            window.onload = function() {
+                admin.note();
+            }
+        });
     </script>
     {@body_footer@}
 </body>

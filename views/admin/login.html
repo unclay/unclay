@@ -250,8 +250,13 @@
                 url: "http://api.home.com/api/v1/login",
                 type: "POST",
                 data: json,
+                xhrFields: {
+                    withCredentials: true
+                },
                 success: function(data){
                     console.log(data);
+                    if( data.code == 0 ) window.location.href = '/admin/index.wcl';
+                    else alert(data.message);
                 },
                 error: function(data){
                     console.log(data);
