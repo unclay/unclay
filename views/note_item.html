@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <title>${title}</title>
+    <meta name="keywords" content="${seo_keywords}" />
+    <meta name="description" content="${seo_description}" />
+
+    {@head_end@}
+</head>
+
+<body>
+    {@body_header@}
+    
+    <div class="wrap">
+        <div class="container cls">
+            <div class="note-entry note-wrap fl cls">
+                $${content}
+            </div>
+            <div class="aside-tag fl">
+                <h3 class="aside-tag-title">标签</h3>
+                <div class="aside-tag-box">
+                    <ul class="aside-tag-list">
+                        <li><i class="iconfont">&#xe600;</i>test</li>
+                        <li><i class="iconfont">&#xe600;</i>test</li>
+                        <li><i class="iconfont">&#xe600;</i>test</li>
+                        <li><i class="iconfont">&#xe600;</i>test</li>
+                        <li><i class="iconfont">&#xe600;</i>test</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="${SOURCE}/common/js/seajs.min.js"></script>
+    
+    <script type="text/javascript">
+        seajs.use("${SOURCE}/common/js/common_v1.js", function(admin) {
+            window.onload = function() {
+                
+            }
+        });
+    </script>
+    {@body_footer@}
+</body>
+
+</html>

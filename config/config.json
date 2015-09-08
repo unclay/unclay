@@ -1,7 +1,8 @@
 {
 	"domain": {
 		"SOURCE": "http://source.home.com",
-		"NOTE": "http://note.home.com"
+		"NOTE": "http://note.home.com",
+		"API": "http://api.home.com"
 	},
 	"db": {
 	    "host": "192.168.1.114",
