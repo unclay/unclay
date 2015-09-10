@@ -15,7 +15,31 @@
     {@body_header@}
     <div class="wrap">
         <div class="container cls">
+            
             <div class="note-wrap fl cls" id="JS_note">
+                
+                {@each list as it,k}
+                    <ul class="every-year">
+                        <li>
+                            <h3>${it.year}年</h3>
+                            <ul class="every-item">
+                                {@each it.list as item,i}
+                                    <li>
+                                        <section>
+                                            {@each item.tag as t,j}
+                                                <a class="tag" href="${WWW}/note/tag/${t.name}">${t.name}</a>
+                                            {@/each}
+                                            <time>${item.createtime|helpYMD}</time>
+                                            <a class="title" href="${WWW}/note/${item.seo_url}">${item.title}</a>
+                                            <div class="content">${item.intro}</div>
+                                        </section>
+                                        
+                                    </li>
+                                {@/each}
+                            </ul>
+                        </li>
+                    </ul>
+                {@/each}
                 <script type="unclay/template">
                     <div class="grid">
                         <a href="#" class="grid-img">
@@ -26,50 +50,29 @@
                         <div class="grid-meta">2013年6月6日</div>
                     </div>
                 </script>
-                <!--
-                    {@helper helpYMD}
-                        function(time) {
-                            var t = new Date(time);
-                            t = "y年m月d日".replace("y", t.getFullYear())
-                                            .replace("m", t.getMonth()-1)
-                                            .replace("d", t.getDate())
-                            return t;
-                        }
-                    {@/helper}
-                -->
-                {@each list as it,k}
+                
+                <!-- {@each list as it,k}
                     <div class="grid">
-                        <a href="#" class="grid-img">
+                        <a href="${WWW}/note/${it.seo_url}" class="grid-img">
                             <img src="${API}/thumbnail/${it.thumbnail}" />
                         </a>
-                        <a href="#" class="grid-title">${it.title}</a>
-                        <p>${it.intro}</p>
+                        <a href="${WWW}/note/${it.seo_url}" class="grid-title">${it.title}</a>
+                        <p class="grid-intro">${it.intro}</p>
                         <div class="grid-meta">${it.createtime|helpYMD}</div>
                     </div>
-                {@/each}
+                {@/each} -->
             </div>
-            <div class="aside-tag fl">
-                <h3 class="aside-tag-title">标签</h3>
-                <div class="aside-tag-box">
-                    <ul class="aside-tag-list">
-                        <li><i class="iconfont">&#xe600;</i>test</li>
-                        <li><i class="iconfont">&#xe600;</i>test</li>
-                        <li><i class="iconfont">&#xe600;</i>test</li>
-                        <li><i class="iconfont">&#xe600;</i>test</li>
-                        <li><i class="iconfont">&#xe600;</i>test</li>
-                    </ul>
-                </div>
-            </div>
+            {@note_tag@}
         </div>
     </div>
     <script src="${SOURCE}/common/js/seajs.min.js"></script>
     
     <script type="text/javascript">
-        seajs.use("${SOURCE}/common/js/common_v1.js", function(admin) {
-            window.onload = function() {
-                admin.note();
-            }
-        });
+        // seajs.use("${SOURCE}/common/js/common_v1.js", function(admin) {
+        //     // window.onload = function() {
+        //     //     // admin.note();
+        //     // }
+        // });
     </script>
     {@body_footer@}
 </body>

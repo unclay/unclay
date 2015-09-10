@@ -15,5 +15,10 @@
 	    "host": "redis.duapp.com",
 	    "port": 80,
 	    "pass": "vkGm0Ysdr6zxmn5cv1XrlfLB-xrKVtSrLZeaj3VTx6lh1aQuXYUGFMs8t-XssdPrZESAFIVpOFOzAf"
+	},
+	"application": {
+		"note": {
+			"limit": 4 
+		}
 	}
 }

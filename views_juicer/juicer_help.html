@@ -1,0 +1,20 @@
+<!--
+    {@helper helpYMD}
+        function(time) {
+            var t = new Date(time);
+            t = "y年m月d日".replace("y", t.getFullYear())
+                            .replace("m", t.getMonth()-1)
+                            .replace("d", t.getDate())
+            return t;
+        }
+    {@/helper}
+    {@helper getYMD}
+        function(time) {
+            var t = new Date(time);
+            t = "y-m-d".replace("y", t.getFullYear())
+                            .replace("m", t.getMonth()-1)
+                            .replace("d", t.getDate())
+            return t;
+        }
+    {@/helper}
+-->

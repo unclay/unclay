@@ -1,0 +1,15 @@
+<div class="aside-tag fl">
+    <h3 class="aside-tag-title">标签</h3>
+    <div class="aside-tag-box">
+        <div class="aside-tag-list">
+        	
+            {@each tag as it,k}
+                <a href="${WWW}/note/tag/${it.tagid.name}" class="item">
+                    <i class="fl iconfont">&#xe600;</i>
+                    <strong class="fl">${it.tagid.name}</strong>
+                    <span class="fl">(${it.count})</span>
+                </a>
+            {@/each}
+        </div>
+    </div>
+</div>
