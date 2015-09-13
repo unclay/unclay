@@ -13,11 +13,12 @@
 
 <body>
     {@body_header@}
+    {@juicer_help@}
     <div class="wrap">
         <div class="container cls">
             
             <div class="note-wrap fl cls" id="JS_note">
-                
+
                 {@each list as it,k}
                     <ul class="every-year">
                         <li>
@@ -50,17 +51,6 @@
                         <div class="grid-meta">2013年6月6日</div>
                     </div>
                 </script>
-                
-                <!-- {@each list as it,k}
-                    <div class="grid">
-                        <a href="${WWW}/note/${it.seo_url}" class="grid-img">
-                            <img src="${API}/thumbnail/${it.thumbnail}" />
-                        </a>
-                        <a href="${WWW}/note/${it.seo_url}" class="grid-title">${it.title}</a>
-                        <p class="grid-intro">${it.intro}</p>
-                        <div class="grid-meta">${it.createtime|helpYMD}</div>
-                    </div>
-                {@/each} -->
             </div>
             {@note_tag@}
         </div>

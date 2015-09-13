@@ -60,7 +60,7 @@ exports.note = function(req, res, next) {
 	    			});
 	    		}
 	    	}
-	    	_list = _year = _tag = note = null;
+	    	_list = _year = _tag = note = null; 	
 	    	res.jrender("note", {
 		    	list: _note,
 		    	tag: data
@@ -74,65 +74,75 @@ exports.note = function(req, res, next) {
 exports.note_tag = function(req, res, next) {
 	// var page = req.params.page || 1;
 	// var limit = Config.application.note.limit || 10;
+	var tag = req.params.tag;
 	Model.Msl.use(function(callback) {
 		var note;
-	    var p = Model.Note
-	        .find()
-	        .populate("tag")
-	        .sort({
-	        	"createtime": "desc"
-	        })
-	        // .skip( page*limit-limit )
-	        // .limit(limit)
-	        .exec();
-	    p.then(function(data){
-	    	note = data;
-	    	return Model.Total
-	    				.find()
-	    				.select("-content")
-	    				.deepPopulate("tagid", {
-	    					"populate": {
-	    						tagid: {
-	    							select: "name"
-	    						}
-	    					}
-	    				})
-	    				.exec();
-	    	
-	    }).then(function(data){
-	    	var _note = [];
-	    	var _list = {};
-	    	var _year = 0;
-	    	var _tag = [];
-	    	for(var i=0; i<note.length; i++){
-	    		var year = note[i].createtime.getFullYear();
-	    		_tag = [];
-	    		for( var j=0; j<note[i].tag.length; j++ ){
-	    			//_tag.push(note[i].ag)
-	    		}
-	    		note[i] = JSON.parse( JSON.stringify(note[i]) );
-	    		if( _year != year ){
-	    			_year = year;
-	    			_list = [];
-	    			if( _year != 0 ) _note.push({
-	    				year: _year,
-	    				list: _list
-	    			});
-	    		}
-	    		_list.push(note[i]);
-	    		if( i == note.length-1 ){
-	    			_note.push({
-	    				year: _year,
-	    				list: _list
-	    			});
-	    		}
-	    	}
-	    	_list = _year = _tag = note = null;
-	    	res.jrender("note", {
-		    	list: _note,
-		    	tag: data
-		    });
-	    }).then(null, callback);
+		var p = Model.Total
+			.findOne({
+				"name": tag
+			})
+			.deepPopulate("note note.tag tagid", {
+				"populate": {
+					"note": {
+						"select": "title tag intro createtime tagid seo_url"
+					},
+					"note.tag": {
+						"select": "name"
+					}
+				}
+			})
+			.exec();
+		p.then(function(data){
+			note = data.note;
+			var _note = [];
+		    	var _list = {};
+		    	var _year = 0;
+		    	var _tag = [];
+		    	for(var i=0; i<note.length; i++){
+		    		var year = note[i].createtime.getFullYear();
+		    		_tag = [];
+		    		for( var j=0; j<note[i].tag.length; j++ ){
+		    			//_tag.push(note[i].ag)
+		    		}
+		    		note[i] = JSON.parse( JSON.stringify(note[i]) );
+		    		if( _year != year ){
+		    			_year = year;
+		    			_list = [];
+		    			if( _year != 0 ) _note.push({
+		    				year: _year,
+		    				list: _list
+		    			});
+		    		}
+		    		_list.push(note[i]);
+		    		if( i == note.length-1 ){
+		    			_note.push({
+		    				year: _year,
+		    				list: _list
+		    			});
+		    		}
+		    	}
+			note = _note;
+			return Model.Total
+    				.find()
+    				.select("-content")
+    				.deepPopulate("tagid", {
+    					"populate": {
+    						tagid: {
+    							select: "name"
+    						}
+    					}
+    				})
+    				.exec();
+		}).then(function(data){
+			if( !!data ){
+				res.jrender("note", {
+			    	list: note,
+			    	tag: data
+			    });
+			} else {
+				callback("note_tag.tag.null");
+			}
+		}).then(null, callback);
 	}, function(err) {
 	    next(err);
 	});
