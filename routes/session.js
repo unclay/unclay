@@ -47,23 +47,18 @@ module.exports = function(opt){
 	}
 	return function(req, res, next){
 		var id = req.cookies[key];
-		console.log("session1");
 		if( !!id ){
-			console.log("session2");
 			var session = sessions[id];
 			if( !!session && !!session.user ){
 				if( session.cookie.expire > new Date().getTime() ){
-					console.log("session3");
 					session.cookie.expire = new Date().getTime() + EXPIRES;
 					setEnd(req, res, next, session);
 				} else {
-					console.log("session4");
 					delete sessions[id];
 					next();
 					// generate(req, res, next);
 				}
 			} else {
-				console.log("session5");
 				generate(req, res, next, id);
 			}
 		} else next();
