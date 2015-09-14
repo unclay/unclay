@@ -240,30 +240,33 @@
         <p class="admin_copyright"><a tabindex="5" href="/" target="_blank">返回首页</a> &copy; 2015 Powered by <a href="http://www.clary.cc/" target="_blank">unclay.com</a></p>
     </div>
     <script type="text/javascript">
-    	document.querySelector(".btn-primary").onclick = function(e){
-    		var json = {
-    			"name": document.querySelectorAll(".admin_input_style")[0].value,
-    			"pass": document.querySelectorAll(".admin_input_style")[1].value
-    		};
-    		console.log(json);
-            $.ajax({
-                url: "http://api.home.com/api/v1/login",
-                type: "POST",
-                data: json,
-                xhrFields: {
-                    withCredentials: true
-                },
-                success: function(data){
-                    console.log(data);
-                    if( data.code == 0 ) window.location.href = '/admin/index.wcl';
-                    else alert(data.message);
-                },
-                error: function(data){
-                    console.log(data);
-                }
-            });
-    		e.preventDefault();
-    	}
+        seajs.use("site-config/1.0.0/index", function(Config){
+            document.querySelector(".btn-primary").onclick = function(e){
+                var json = {
+                    "name": document.querySelectorAll(".admin_input_style")[0].value,
+                    "pass": document.querySelectorAll(".admin_input_style")[1].value
+                };
+                console.log(json);
+                $.ajax({
+                    url: Config.getSiteUrl("api")+"/api/v1/login",
+                    type: "POST",
+                    data: json,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    success: function(data){
+                        console.log(data);
+                        if( data.code == 0 ) window.location.href = '/admin/index.wcl';
+                        else alert(data.message);
+                    },
+                    error: function(data){
+                        console.log(data);
+                    }
+                });
+                e.preventDefault();
+            }    
+        });
+    	
     </script>
 </body>
 
