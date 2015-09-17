@@ -53,14 +53,14 @@ exports.note = function(req, res, next) {
 	    			});
 	    		}
 	    		_list.push(note[i]);
-	    		if( i == note.length-1 ){
+	    		if( i == note.length-1 && _note[_note.length-1].year != _year ){
 	    			_note.push({
 	    				year: _year,
 	    				list: _list
 	    			});
 	    		}
 	    	}
-	    	_list = _year = _tag = note = null; 	
+	    	_list = _year = _tag = note = null; 
 	    	res.jrender("note", {
 		    	list: _note,
 		    	tag: data
