@@ -38,7 +38,7 @@ exports.note = function(req, res, next) {
 	    	var _year = 0;
 	    	var _tag = [];
 	    	for(var i=0; i<note.length; i++){
-	    		var year = note[i].createtime.getFullYear();
+	    		var year = moment.unix(note[i].createtime).year();
 	    		_tag = [];
 	    		for( var j=0; j<note[i].tag.length; j++ ){
 	    			//_tag.push(note[i].ag)
@@ -99,7 +99,7 @@ exports.note_tag = function(req, res, next) {
 		    	var _year = 0;
 		    	var _tag = [];
 		    	for(var i=0; i<note.length; i++){
-		    		var year = note[i].createtime.getFullYear();
+		    		var year = moment.unix(note[i].createtime).year();
 		    		_tag = [];
 		    		for( var j=0; j<note[i].tag.length; j++ ){
 		    			//_tag.push(note[i].ag)
@@ -136,6 +136,7 @@ exports.note_tag = function(req, res, next) {
 		}).then(function(data){
 			if( !!data ){
 				res.jrender("note", {
+					tagname: tag,
 			    	list: note,
 			    	tag: data
 			    });

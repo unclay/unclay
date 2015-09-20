@@ -3,7 +3,7 @@ var path = require("path");
 var fs = require("fs");
 // 首页
 exports.index = function(req, res) {
-	res.locals.layout = "layout"
+	res.locals.layout = "layout";
     res.jrender("index", {
     	title: "unclay"
     });

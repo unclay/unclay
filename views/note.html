@@ -14,11 +14,12 @@
 <body>
     {@body_header@}
     {@juicer_help@}
+
     <div class="wrap">
         <div class="container cls">
             
             <div class="note-wrap fl cls" id="JS_note">
-
+                <h2 class="note-tag" id="JS_currentTag">${tagname}</h2>
                 {@each list as it,k}
                     <ul class="every-year">
                         <li>
@@ -30,7 +31,7 @@
                                             {@each item.tag as t,j}
                                                 <a class="tag" href="${WWW}/note/tag/${t.name}">${t.name}</a>
                                             {@/each}
-                                            <time>${item.createtime|helpYMD}</time>
+                                            <time>${item.createtime|getYMD, "y年m月d日"}</time>
                                             <a class="title" href="${WWW}/note/${item.seo_url}">${item.title}</a>
                                             <div class="content">${item.intro}</div>
                                         </section>

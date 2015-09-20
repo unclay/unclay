@@ -22,10 +22,13 @@ app.set("view engine", "html");
 app.use(cookieParser());
 app.use(jTemplate({
 	cache: false,
+	debug: true,
 	domain: config.domain,
+	register: __dirname + "/routes/juicer_register.js",
 	set: {
 		'tag::commentOpen': '$#',
-    	'tag::commentClose': '$'
+    	'tag::commentClose': '$',
+    	'cache': false
 	}
 }));
 app.use(new routes_session());

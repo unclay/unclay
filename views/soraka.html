@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <title>${title}</title>
+    <meta name="keywords" content="${seo_keywords}" />
+    <meta name="description" content="${seo_description}" />
+
+    {@head_end@}
+</head>
+
+<body>
+    {@body_header@}
+    <div class="wrap">
+        <div class="container cls">
+            <div class="note-wrap fl cls" id="JS_note">
+                <div class="subnav">
+                    <i class="iconfont">&#xe601;</i>
+                    {@each note.tag as t,i}
+                        <a class="tag" href="${WWW}/note/tag/${t.name}">${t.name}</a>
+                    {@/each}
+                </div>
+                <h2>${note.title}</h2>
+                <time>${note.createtime|getYMD}</time>
+                <div class="note-entry note-wrap fl cls">
+                    
+                    
+                </div>
+            </div>
+            {@note_tag@}
+        </div>
+    </div>
+    <script src="${SOURCE}/common/js/seajs.min.js"></script>
+    
+    <script type="text/javascript">
+        seajs.use("${SOURCE}/common/js/common_v1.js", function(admin) {
+            window.onload = function() {
+                
+            }
+        });
+    </script>
+    {@body_footer@}
+</body>
+
+</html>

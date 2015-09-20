@@ -3,6 +3,7 @@ var Model = require("./model");
 var R_admin = require("./admin");
 var R_note = require("./note");
 var marked = require("marked");
+
 module.exports = function(app){
 	R_admin(app);
 
