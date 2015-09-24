@@ -84,7 +84,12 @@ exports.note_tag = function(req, res, next) {
 			.deepPopulate("note note.tag tagid", {
 				"populate": {
 					"note": {
-						"select": "title tag intro createtime tagid seo_url"
+						"select": "title tag intro createtime tagid seo_url",
+						"options": {
+				        	"sort": {
+				        		"createtime": "desc"
+				        	}
+				        }
 					},
 					"note.tag": {
 						"select": "name"
@@ -114,7 +119,7 @@ exports.note_tag = function(req, res, next) {
 		    			});
 		    		}
 		    		_list.push(note[i]);
-		    		if( i == note.length-1 ){
+		    		if( i == note.length-1 && _note[_note.length-1].year != _year  ){
 		    			_note.push({
 		    				year: _year,
 		    				list: _list

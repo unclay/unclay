@@ -72,7 +72,7 @@
                         <td>
                             <input type="text" name="author" value="" disabled />
                         </td>
-                        <td>{{updatetime}}</td>
+                        <td>{{format updatetime 'yyyy-MM-dd'}}</td>
                         <td><a href="/admin/note/update.wcl/?id={{_id}}">修改</a>
                             <input data-type="update" type="submit" value="更新" class="update-btn" />
                             <input data-type="delete" type="submit" value="删除" class="del-btn" />

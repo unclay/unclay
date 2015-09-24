@@ -93,7 +93,6 @@ Middleware.prototype.findSessionByDb = function(req, res, next, session_id){
 	});
 }
 Middleware.prototype.log = function(){
-	console.log("loglologlogloglogloglog", this.DEBUG);
 	this.DEBUG && console.log.apply(null, arguments);
 }
 
