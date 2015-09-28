@@ -140,7 +140,7 @@ exports.note_tag = function(req, res, next) {
     				.exec();
 		}).then(function(data){
 			if( !!data ){
-				res.jrender("note", {
+				res.jrender("note_tag", {
 					tagname: tag,
 			    	list: note,
 			    	tag: data

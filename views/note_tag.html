@@ -19,7 +19,7 @@
         <div class="container cls">
             
             <div class="note-wrap fl cls" id="JS_note">
-                {@note_tips_note@}
+                {@note_tips_tag@}
                 <!--h2 class="note-tag" id="JS_currentTag">${tagname}</h2-->
                 {@each list as it,k}
                     <ul class="every-year">
@@ -28,7 +28,6 @@
                                 <i class="iconfont">&#xe604;</i>
                                 <h3 class="tag">${it.year}年</h3>
                             </div>
-                            <!-- h3>${it.year}年</h3 -->
                             <ul class="every-item">
                                 {@each it.list as item,i}
                                     <li>

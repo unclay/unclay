@@ -22,7 +22,7 @@ app.set("view engine", "html");
 app.use(cookieParser());
 app.use(jTemplate({
 	cache: false,
-	debug: true,
+	debug: false,
 	domain: config.domain,
 	register: __dirname + "/routes/juicer_register.js",
 	set: {
