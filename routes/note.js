@@ -155,6 +155,7 @@ exports.note_tag = function(req, res, next) {
 }
 
 exports.note_item = function(req, res, next) {
+	console.log( req.params.uri );
 	Model.Msl.use(function(callback) {
 	    var note;
 	    var p = Model.Note
@@ -184,13 +185,17 @@ exports.note_item = function(req, res, next) {
 	    				})
 	    				.exec();
 	    }).then(function(data){
-	    	note.content = marked(note.content);
-	    	note = JSON.parse( JSON.stringify(note) );
-	    	res.jrender("note_item", {
-		    	note: note,
-
-		    	tag: data
-		    });
+	    	if( !note ) {
+	    		next();
+	    	} else {
+	    		note.content = marked(note.content);
+		    	note = JSON.parse( JSON.stringify(note) );
+		    	res.jrender("note_item", {
+			    	note: note,
+			    	tag: data
+			    });
+	    	}
+	    	
 	    }).then(null, callback);
 	}, function(err) {
 	    next(err);

@@ -35,7 +35,9 @@
                         <tr>
                             <th>作者 :</th>
                             <td>
-                                <input type="text" name="author" value="" disabled />
+                                {{#each user}}
+                                    {{showname}}
+                                {{/each}}
                             </td>
                         </tr>
                         <tr>

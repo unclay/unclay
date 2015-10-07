@@ -70,7 +70,7 @@
                         </td>
                         <td>{{clicknum}}</td>
                         <td>
-                            <input type="text" name="author" value="" disabled />
+                            {{getFirstByArray user 'showname'}}
                         </td>
                         <td>{{format updatetime 'yyyy-MM-dd'}}</td>
                         <td><a href="/admin/note/update.wcl/?id={{_id}}">修改</a>
