@@ -9,6 +9,12 @@ exports.note = function(req, res, next) {
 	// var limit = Config.application.note.limit || 10;
 	Model.Msl.use(function(callback) {
 		var note;
+		console.log("test1", Model.Note);
+		Model.Note.find(function(err,doc){
+			console.log("test2");
+			console.log(err,doc);
+		});
+		console.log("test3");
 	    var p = Model.Note
 	        .find()
 	        .populate("tag")
