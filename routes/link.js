@@ -31,7 +31,8 @@ DbKeeper.prototype.config = function(conf) {
     }
     else{
         //'mongodb://user:pass@localhost:port/database'
-        constr = util.format('mongodb://%s:%s@%s:%d/%s', conf.userid,conf.password,conf.host,conf.port,conf.database);
+        console.log( conf.user,conf.pass,conf.host,conf.port,conf.database );
+        constr = util.format('mongodb://%s:%s@%s:%d/%s', conf.user,conf.pass,conf.host,conf.port,conf.database);
     }
     this.dbUri = constr;
 }
@@ -40,9 +41,10 @@ DbKeeper.prototype.open =function() {
     this.open_count++;
     if(this.open_count ==1 && this.db.readyState == 0)
     {        
-        this.db.open(this.host, this.database, this.port, this.options, function() {
+        console.log(  this.host, this.database, this.port, this.options);
+        this.db.open(this.dbUri, function(a) {
             // body...
-            console.log("db opened");
+            console.log(a,"db opened");
         });
         this.db.on("error",function(err){
             console.log(err);

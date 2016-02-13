@@ -11,9 +11,8 @@ var config = require("./config/config.json");
 var routes = require("./routes");
 var routes_session = require("./routes/session");
 
-var port = os.cpus()[0].model.indexOf("i5-4690") >= 0 ? 8085 : (os.type().indexOf("Window") >= 0 || os.cpus()[0].model.indexOf("M 380") >= 0) ? 8010 : 18080;
+var port = !!config.host && !!config.host.port ? config.host.port : 18080;
 var app = express();
-console.log(port)
 app.set("port", port);
 app.set("views", path.join(__dirname + "/views"));
 app.set("view engine", "html");
@@ -22,7 +21,7 @@ app.set("view engine", "html");
 app.use(cookieParser());
 app.use(jTemplate({
 	cache: false,
-	debug: false,
+	debug: true,
 	domain: config.domain,
 	register: __dirname + "/routes/juicer_register.js",
 	set: {

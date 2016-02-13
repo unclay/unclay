@@ -1,13 +1,19 @@
 {
 	"domain": {
-		"SOURCE": "http://localhost:8011"
+		"SOURCE": "http://source.unclay.com",
+		"NOTE": "http://note.unclay.com",
+		"API": "http://api.unclay.com"
 	},
-	"domain": {
-		"SOURCE": "http://source.unclay.com"
+	"db": {
+	    "host": "mongo.duapp.com",
+	    "database": "",
+	    "user": "",
+	    "pass": "",
+	    "port": "8908"
 	},
-	"redis": {
-	    "host": "192.168.1.114",
-	    "port": "6379",
-	    "pass": "123456"
+	"application": {
+		"note": {
+			"limit": 4 
+		}
 	}
 }
