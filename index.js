@@ -20,14 +20,14 @@ app.set("view engine", "html");
 // app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(jTemplate({
-	cache: false,
-	debug: true,
+	cache: true,
+	debug: false,
 	domain: config.domain,
 	register: __dirname + "/routes/juicer_register.js",
 	set: {
 		'tag::commentOpen': '$#',
     	'tag::commentClose': '$',
-    	'cache': false
+    	'cache': true
 	}
 }));
 app.use(new routes_session());
